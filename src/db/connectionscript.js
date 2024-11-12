@@ -1,14 +1,14 @@
-import { CONNECTION } from './variable.js'
+
 import mongoose from 'mongoose';
 import { DB_NAME } from './constants.js';
 // give database-name
 export  default async function connectdb() {
     try {
         
-        const passkey = await mongoose.connect(`${CONNECTION}`);
+        const passkey = await mongoose.connect(`${process.env.CONNECTION}/${DB_NAME}`);
         } 
     
         catch (error) {
-        console.error('Connection error:', error.message);
+        console.error('Connection error:', error.message)
     }
 }
